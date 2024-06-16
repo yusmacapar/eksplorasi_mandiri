@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX jQuery PHP</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Tanpa AJAX</h1>
+    <p>Buka <a href="hal1.php">halaman 1</a></p>
+    <p>Buka <a href="hal2.php">halaman 2</a></p>
+
+    <h1>Dengan AJAX</h1>
+    <button onclick="bukahal(1)">Buka Hal 1</button>
+    <button onclick="bukahal(2)">Buka Hal 2</button>
+
+    <div id="konten" style="border: 1px solid black; background-color:skyblue; padding:20px; color:white"></div>
+
+    <script>
+        function bukahal(n){
+            $.ajax("hal" + n + ".php").done(function(data){
+                $("#konten").html(data);
+            });
+        }
+    </script>
+</body>
+</html>
